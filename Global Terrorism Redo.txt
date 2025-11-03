@@ -1,0 +1,33 @@
+                                    Global Terrorism Insights 
+This notebook looks at Global Terrorism Dataset, it was sourced from the global terrorism database.
+Steps Taken
+        1. Import neccessary libraries
+        2. Read both dataset as gotten from the website
+        3. Append both datasets to create a new dataframe [dirty]
+        4. Renaming columns to be used for analysis
+        5. Dropping columns with more than 50% null values[Alternative_Designation, Second_AttackType, Third_AttackType, 2ndPerp_GroupName, 3rdPerp_GroupName, 2ndPerpSusp, 3rdPerpSusp, Comp_Claims,
+        Hours_Held, No_Rel_Vics, Total_Ransom_Amt, Total_Ransom_Paid]
+        6. Dropping null values(dirty.dropna) for columns whose null values is less than 50% but greater than 5%
+        7. For  numerical columns with more than 50% but take a huge chunk of the data away if dropped or using the dropna function, we fill it with -9.0
+        8. Mapping for numerical columns float64 columns [1.0->Yes, 0.0->No, -9.0->Unknown], int64 columns[1->Yes, 0->No, -9->Unknown]
+        9. No Duplicates rows/records where found
+        10. Create new date columns for time series analysis, drop all rows where Day_Recorded == 0
+                a Change Day_Recorded, Month_Recorded, Year_Recorded to str using the map method
+                b Combine day/month/year to create new date_reported column ie global_data['Date_Recorded'] = pd.to_datetime(global_data['Day_Recorded'] + '/' + global_data['Month_Recorded'] + '/' + global_data['Year_Recorded'])
+                c Create new column called Day_of_week  and drop Day_Recorded
+                d month_mapping so that Month_Recorded can be sorted chronologically
+Visualiations
+        1. Total attacks - 102.8k
+        2. No of countries affected - 169
+        3. No of victims - 217k
+        4. Trend of attacks over the years - Global terrorism incidents exhibited a long-term upward trajectory from the earliest recorded events, with steady incremental growth and no major inflection points prior to the September 11, 2001 attacks. Following a period of relative stability, a sharp surge in terrorist activity occurred between 2011 and 2012, culminating in a global peak in 2014. Thereafter, the incidence of attacks declined progressively, marking the beginning of a sustained downward trend
+        5. Since, it has been determined that terror incidents reached its peak in 2014, we take a more closer look to terror events in 2014 and for that we create a new dataframe called attack_2014
+                attack_2014 = global_data.loc[global_data['Year_Recorded'] == '2014']
+        6. In 2014, the first half of the year experienced more attack but the attacks were more fatal between May to July. The summary table/chart displays a more accurate breakdown of what happened in 2014 in regard to injuries, fatalities and the number of hostages held
+        7. According to countries_2014, Iraq recorded the highest levels of terrorist activity in 2014, leading globally in the number of attacks, fatalities, injured victims, and hostages taken. This dominance is clearly illustrated in the accompanying chart 
+        8. successful_2014  identifies the terrorist organizations responsible for the highest number of successful and suicide attacks in 2014. Unidentified perpetrators account for the largest share of incidents. Among recognized groups, ISIL (also known as ISIS) records the highest activity, consistent with its designation as the same entity across global security databases.
+        9. Terror tactics that was most commonly used in 2014 was the Bombing/Explosion tactics
+        10. target_2014 shows that the victim_group most targeted in 2014 were Civillians[Private Citizens & Property]
+        11. claimed.csv shows a summary of attacks that happened in 2014, the distribution of groups responsible.
+        12. top_org_country shows groups responsible for most attacks in each country for the year 2014
+        13. Political_intent_oustide_attack table gives a summary of the number of attacks that were politiocal, coercsion or of outside influence. From this table we can deduce the terrir attacks can be polictiocal, coercsion and of outsode influence at the same time

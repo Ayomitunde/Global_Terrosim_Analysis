@@ -1,0 +1,121 @@
+                    Global Terrorism Data Analysis Report  
+Comprehensive Insights from 1970 to 2014 with Focused Analysis on the Peak Year: 2014
+
+                            Executive Summary
+
+This report presents a comprehensive analysis of global terrorism trends using a robust dataset spanning from the earliest recorded incidents to 2021. Key findings reveal a long-term escalation in terrorist activity, culminating in a global peak in 2014. The year 2014 stands out as a critical inflection point, with Iraq emerging as the epicenter of violence and ISIL (ISIS) as the most active recognized perpetrator. While bombing and explosion tactics dominated, civilians bore the brunt of attacks. The analysis also highlights the multifaceted nature of terrorist motivations — political, coercive, and externally influenced — often overlapping within the same incident.
+
+1. Global Overview (1970 – 2021)
+| Metric                           |    Value      |
+|----------------------------------|---------------|
+| Total Terrorist Attacks          | 102,800       |
+| Countries Affected               |    169        |
+| Total Victims (Killed + Injured) | 217,000       |
+
+These figures underscore the scale and geographic breadth of modern terrorism, affecting nearly every region of the world.
+
+2. Long-Term Trend of Terrorist Incidents
+
+Global terrorism incidents followed a sustained upward trajectory from the earliest recorded events. Growth was gradual and consistent, with no significant global inflection points prior to the September 11, 2001 attacks.
+
+Post-9/11 (2001–2010): A period of relative stabilization followed the initial shock.
+- 2011–2012: A sharp and unprecedented surge in global terrorist activity began.
+- 2014: Peak incidence — the highest number of attacks recorded in history.
+- Post-2014: A gradual but sustained decline in attack frequency.
+
+Insight: The 2011–2014 escalation coincides with regional instability in the Middle East and North Africa, particularly the Syrian Civil War and the rise of ISIL.
+
+3. Deep Dive: 2014 — The Peak Year
+
+To enable granular analysis, a filtered dataset was created:
+python
+attack_2014 = global_data.loc[global_data['Year_Recorded'] == 2014]
+
+3.1 Temporal Distribution Within 2014
+- The first half of the year recorded a higher volume of attacks.
+- May to July saw the highest lethality, with peak fatalities and injuries.
+- The accompanying monthly summary table and chart provide a precise breakdown of attacks, fatalities, injuries, and hostages by month.
+
+> Key Insight: While attack frequency was front-loaded, mid-year lethality suggests strategic escalation during this period.
+
+3.2 Geographic Hotspot: Iraq
+countries_2014 dataset reveals Iraq as the undisputed epicenter of global terrorism in 2014:
+
+| Metric                      | Iraq's Rank     |
+|-----------------------------|-----------------|
+| Total Attacks               | 1st             |
+| Fatalities                  | 1st             |
+| Injured Victims             | 1st             |
+| Hostages Taken              | 1st             |
+
+> Supporting Visualization: A comparative chart clearly illustrates Iraq’s dominance across all impact categories.
+3.3 Perpetrator Landscape: successful_2014`
+The successful_2014 dataset ranks groups by successful and suicide attacks:
+
+Unidentified/Unknown perpetrators** account for the largest share of incidents.
+- Among recognized groups, ISIL (also known as ISIS) recorded the highest number of successful and suicide operations.
+
+>Note: ISIL and ISIS refer to the same organization, a fact confirmed across global security databases and open-source intelligence.
+
+3.4 Dominant Attack Tactic
+- Bombing/Explosion was the most frequently employed tactic in 2014.
+- This method’s prevalence reflects its high lethality, low cost, and operational simplicity.
+
+
+3.5 Primary Target: Civilians
+The target_2014 analysis confirms that Private Citizens & Property (Civilians) were the most targeted victim group in 2014.
+
+> Implication: Terrorism in 2014 was indiscriminate and civilian-focused, amplifying societal fear and disruption.
+
+---
+
+3.6 Claimed Responsibility: claimed.csv
+The `claimed.csv` summary reveals the distribution of responsibility claims:
+- A significant proportion of attacks went unclaimed.
+- Among claimed incidents, ISIL again emerges as a dominant actor.
+
+---
+
+3.7 Top Perpetrators by Country: `top_org_country`
+This dataset identifies the most active terrorist group in each affected country in 2014:
+- Enables country-level threat profiling.
+- Highlights localized dominance of certain groups (e.g., Boko Haram in Nigeria, Taliban in Afghanistan).
+
+---
+
+3.8 Motivational Complexity: `political_intent_outside_attack`
+This table aggregates attacks by political, coercive, and external influence motives (Yes/No):
+
+Insight
+A single attack can have multiple overlapping motives
+Political, coercive, and externally influenced objectives frequently co-occur. 
+This multidimensionality complicates counterterrorism policy and attribution
+
+
+Key Conclusions
+
+1. 2014 was the global peak of terrorist activity, driven by regional instability and the rise of ISIL.
+2. Iraq was the primary theater of operations, leading in all impact metrics.
+3. ISIL (ISIS) was the most prolific recognized perpetrator; unknown actors remain a persistent challenge.
+4. Bombings and civilian targeting defined the tactical and strategic landscape.
+5. Terrorist motives are not mutually exclusive — political, coercive, and external influence often converge
+
+Recommendations
+
+1. Enhance perpetrator attribution through improved intelligence and forensic capabilities.
+2. Prioritize civilian protection in counterterrorism planning and urban security.
+3. Target bombing precursor materials (e.g., explosives, detonators) via supply chain interdiction.
+4. Adopt multidimensional analytical frameworks that account for overlapping terrorist motivations.
+5. Sustain focus on Iraq and ISIL legacy networks, even as global attack volume declines.
+
+Appendix: Data Sources & Methods
+- Dataset: Global Terrorism Database (GTD) or equivalent structured incident log.
+- Filtering: `attack_2014` created via `Year_Recorded == 2014`.
+- Aggregations: Performed using `pandas.groupby()` with custom lambda functions for binary (Yes/No) columns.
+- Visualizations**: Generated using Plotly and Seaborn for interactive and static reporting.
+
+Prepared by: Mariam Ogundeyi   
+Date: November 2025  
+Confidence Level: High (based on comprehensive, structured incident data)
+
+This report is intended for security analysts, policymakers, and researchers studying global terrorism trends.
